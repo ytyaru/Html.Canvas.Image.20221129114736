@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<meta name="description" content="HTMLのCanvasを使う">
+<meta name="author" content="ytyaru">
+<link rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.ja">
+<link rel="icon" href="asset/image/avator.png">
+<link rel="stylesheet" href="css/styles.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="js/main.js"></script>
+</head>
+<body>
+    <h1>HTMLのCanvasを使う</h1>
+    <p>JSのCanvas APIを使う。</p>
+    <table>
+        <tr><th><code>2d</code></th><th><code>webgl</code></th><th><code>webgl2</code></th><th><code>bitmaprenderer</code></th></tr>
+        <tr><td><canvas id="canvas-2d"></canvas></td><td><canvas id="canvas-webgl"></canvas></td><td><canvas id="canvas-webgl2"></canvas></td><td><canvas id="canvas-bitmaprenderer"></canvas></td></tr>
+        <tr>
+            <td>
+                <label title="アルファチャネルを含むか"><input type="checkbox" id="c0-alpha" name="c0-alpha">alpha</label>
+                <select id="c0-colorSpace" placeholder="colorSpace" title="色空間"><option selected>srgb</option><option>display-p3</option></select>
+                <label title="描画処理をイベントループから非同期化するか"><input type="checkbox" id="c0-desynchronized" name="c0-desynchronized">desynchronized</label>
+                <label title="多くのリードバック操作が計画されているか"><input type="checkbox" id="c0-willReadFrequently" name="c0-willReadFrequently">willReadFrequently</label>
+            </td>
+            <td>
+                <label title="アルファチャネルを含むか"><input type="checkbox" id="c1-alpha" name="c1-alpha">alpha</label>
+                <label title="16bit深度以上要求されているか"><input type="checkbox" id="c1-depth" name="c1-depth">depth</label>
+                <label title="8bit深度以上要求されているか"><input type="checkbox" id="c1-stencil" name="c1-stencil">stencil</label>
+                <label title="描画処理をイベントループから非同期化するか"><input type="checkbox" id="c1-desynchronized" name="c1-desynchronized">desynchronized</label>
+                <label title="アンチエイリアシングするか"><input type="checkbox" id="c1-antialias" name="c1-antialias">antialias</label>
+                <label title="マシンが低能なときコンテキスト作成されるか"><input type="checkbox" id="c1-failIfMajorPerformanceCaveat" name="c1-failIfMajorPerformanceCaveat">failIfMajorPerformanceCaveat</label>
+                <select id="c1-powerPreference" title="描画／電力どちらを優先するか"><option selected>default</option><option>high-performance</option><option>low-power</option></select>
+                <label title="ページコンポジターが描画バッファにあらかじめ乗算されたアルファ色が含まれているか"><input type="checkbox" id="c1-premultipliedAlpha" name="c1-premultipliedAlpha">premultipliedAlpha</label>
+                <label title="バッファを自動クリアするか"><input type="checkbox" id="c1-preserveDrawingBuffer" name="c1-preserveDrawingBuffer">preserveDrawingBuffer</label>
+                <label title="没入型 XR デバイス に互換性のあるグラフィックス アダプターを使用するようにユーザー エージェントに示唆する"><input type="checkbox" id="c1-xrCompatible" name="c1-xrCompatible">xrCompatible</label>
+            </td>
+            <td>
+                <label title="アルファチャネルを含むか"><input type="checkbox" id="c2-alpha" name="c2-alpha">alpha</label>
+                <label title="16bit深度以上要求されているか"><input type="checkbox" id="c2-depth" name="c2-depth">depth</label>
+                <label title="8bit深度以上要求されているか"><input type="checkbox" id="c2-stencil" name="c2-stencil">stencil</label>
+                <label title="描画処理をイベントループから非同期化するか"><input type="checkbox" id="c2-desynchronized" name="c2-desynchronized">desynchronized</label>
+                <label title="アンチエイリアシングするか"><input type="checkbox" id="c2-antialias" name="c2-antialias">antialias</label>
+                <label title="マシンが低能なときコンテキスト作成されるか"><input type="checkbox" id="c2-failIfMajorPerformanceCaveat" name="c2-failIfMajorPerformanceCaveat">failIfMajorPerformanceCaveat</label>
+                <select id="c2-powerPreference" title="描画／電力どちらを優先するか"><option selected>default</option><option>high-performance</option><option>low-power</option></select>
+                <label title="ページコンポジターが描画バッファにあらかじめ乗算されたアルファ色が含まれているか"><input type="checkbox" id="c2-premultipliedAlpha" name="c2-premultipliedAlpha">premultipliedAlpha</label>
+                <label title="バッファを自動クリアするか"><input type="checkbox" id="c2-preserveDrawingBuffer" name="c2-preserveDrawingBuffer">preserveDrawingBuffer</label>
+                <label title="没入型 XR デバイス に互換性のあるグラフィックス アダプターを使用するようにユーザー エージェントに示唆する"><input type="checkbox" id="c2-xrCompatible" name="c2-xrCompatible">xrCompatible</label>
+            </td>
+            <td>
+            </td>
+        </tr>
+    </table>
+    <canvas id="canvas"></canvas>
+    <footer>
+        <span>© 2022 ytyaru</span>
+        <a title="CC-BY-SA" \
+           href="https://creativecommons.org/licenses/by-sa/3.0/deed.ja"
+           style="text-decoration: none;">
+            <img class="icon" src="https://upload.wikimedia.org/wikipedia/commons/a/a3/Cc.logo.circle.svg"></img>
+            <img class="icon" src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Cc-by_new.svg"></img>
+            <img class="icon" src="https://upload.wikimedia.org/wikipedia/commons/2/29/Cc-sa.svg"></img>
+            <!--<img src="https://upload.wikimedia.org/wikipedia/commons/d/d0/CC-BY-SA_icon.svg"></img>-->
+    </a></footer>
+</body>
+</html>
+<!-- https://coliss.com/articles/build-websites/operation/work/html-template-for-web-apps-or-sites.html -->
+<!-- https://coliss.com/articles/build-websites/operation/work/html5-template-for-2018.html -->
